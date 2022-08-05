@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }: any) => {
     <AuthContext.Provider
       value={{
         user: "Jacob",
+        // user: null,
       }}
     >
       {children}

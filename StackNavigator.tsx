@@ -7,10 +7,12 @@ import {
 import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
 import LoginScreen from "./screens/LoginScreen";
+import useAuth from "./hooks/useAuth";
 
 const Stack = createNativeStackNavigator();
 export default function StackNavigator() {
-  const user = false;
+  // @ts-ignore
+  const { user } = useAuth();
   return (
     <Stack.Navigator>
       {user ? (
