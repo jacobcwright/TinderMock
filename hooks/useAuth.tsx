@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React, { createContext, useContext } from "react";
 import * as Google from "expo-auth-session/providers/google";
 import { useAuthRequest } from "expo-auth-session/build/providers/Facebook";
+import Config from "react-native-config";
 
 const AuthContext = createContext({
   // initial state of context (empty in this case)
@@ -9,8 +10,8 @@ const AuthContext = createContext({
 
 // for prod, use env vars
 const config = {
-  androidClientId: process.env.ANDROID_CLIENT_ID,
-  iosClientId: process.env.IOS_CLIENT_ID,
+  androidClientId: Config.ANDROID_CLIENT_ID,
+  iosClientId: Config.IOS_CLIENT_ID,
   scopes: ["profile", "email"],
   permissions: ["public_profile", "email", "gender", "location"],
 };

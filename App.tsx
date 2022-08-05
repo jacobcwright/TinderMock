@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { AuthProvider } from "./hooks/useAuth";
 import StackNavigator from "./StackNavigator";
+import Config from "react-native-config";
 
 export default function App() {
   return (
