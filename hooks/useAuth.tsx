@@ -1,7 +1,6 @@
 import { View, Text } from "react-native";
-import React, { createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import * as Google from "expo-auth-session/providers/google";
-import { useAuthRequest } from "expo-auth-session/build/providers/Facebook";
 import Config from "react-native-config";
 
 const AuthContext = createContext({
@@ -17,8 +16,13 @@ const config = {
 };
 
 export const AuthProvider = ({ children }: any) => {
-  const signIn = async () => {
-    await Google.useAuthRequest();
+  const signInWithGoogle = async () => {
+    Google.useAuthRequest(config).then(async (loginResult: any) => {
+      if (loginResult.type === "success") {
+        // login
+        console.log(loginResult);
+      }
+    });
   };
 
   return (
@@ -26,6 +30,7 @@ export const AuthProvider = ({ children }: any) => {
       value={{
         // user: "Jacob",
         user: null,
+        signInWithGoogle,
       }}
     >
       {children}

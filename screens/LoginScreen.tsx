@@ -1,17 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
 import useAuth from "../hooks/useAuth";
 
-const LoginScreen = () => {
+export default function LoginScreen() {
   // @ts-ignore
-  const { user } = useAuth();
+  const { signInWithGoogle } = useAuth();
   return (
     <View>
-      <Text>Login to the App, {user}</Text>
+      <Text>Login to the App</Text>
+      <Button title="Login with Google" onPress={signInWithGoogle} />
     </View>
   );
-};
-
-export default LoginScreen;
+}
 
 const styles = StyleSheet.create({});
