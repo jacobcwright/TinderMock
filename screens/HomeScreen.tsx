@@ -52,7 +52,29 @@ function HomeScreen() {
           verticalSwipe={false}
           //@ts-ignore
           renderCard={(card) => (
-            <View style={styles.card} key={card.id}>
+            <View style={[styles.card, styles.cardShadow]} key={card.id}>
+              <View
+                style={{
+                  backgroundColor: "white",
+                  height: 80,
+                  flexDirection: "row",
+                  alignItems: "flex-start",
+                  justifyContent: "space-between",
+                  padding: 24,
+                  borderTopLeftRadius: 50,
+                  borderTopRightRadius: 50,
+                }}
+              >
+                <View>
+                  <Text style={{ fontSize: 24, fontWeight: "bold" }}>
+                    {card.firstName} {card.lastName}
+                  </Text>
+                  <Text>{card.occupation}</Text>
+                </View>
+                <Text style={{ fontSize: 24, fontWeight: "bold" }}>
+                  {card.age}
+                </Text>
+              </View>
               <Image source={{ uri: card.photoUrl }} style={styles.cardImg} />
             </View>
           )}
@@ -88,13 +110,25 @@ const styles = StyleSheet.create({
     marginTop: -6,
   },
   card: {
-    backgroundColor: "white",
+    // backgroundColor: "white",
     height: 500,
     borderRadius: 50,
   },
   cardImg: {
     flex: 1,
-    borderRadius: 50,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
+  },
+  cardShadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 1.4,
+
+    elevation: 2,
   },
 });
 
