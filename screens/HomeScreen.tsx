@@ -12,6 +12,7 @@ function HomeScreen() {
           navigation.navigate("Chat" as any);
         }}
       />
+      <Button title="Logout" onPress={() => {}} />
     </View>
   );
 }
