@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import pfp from "../assets/favicon.png";
+import tinderLogo from "../assets/tinder-logo.png";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 
 function HomeScreen() {
@@ -26,7 +27,7 @@ function HomeScreen() {
           <Image style={styles.pfp} source={pfp} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image style={styles.logo} source={pfp} />
+          <Image style={styles.logo} source={tinderLogo} />
         </TouchableOpacity>
 
         <TouchableOpacity
